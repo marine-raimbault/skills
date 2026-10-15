@@ -1,0 +1,26 @@
+{
+  "name": "marine-raimbault-skills",
+  "owner": {
+    "name": "marine-raimbault"
+  },
+  "metadata": {
+    "description": "Claude Code skills by Marine Raimbault",
+    "pluginRoot": "./plugins"
+  },
+  "plugins": [
+    {
+      "name": "learn",
+      "source": "./plugins/learn",
+      "description": "Learn from an issue, PR, plan, code or topic — one question at a time, answers tied to classic software books, and Anki cards for what was hard",
+      "version": "1.0.0",
+      "category": "learning",
+      "tags": [
+        "learning",
+        "anki",
+        "spaced-repetition",
+        "code-review",
+        "junior-developers"
+      ]
+    }
+  ]
+}

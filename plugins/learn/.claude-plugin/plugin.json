@@ -1,0 +1,10 @@
+{
+  "name": "learn",
+  "description": "Learn from an issue, PR, plan, code or topic — one question at a time, answers tied to classic software books, and Anki cards for what was hard",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": {
+    "name": "Marine Raimbault",
+    "url": "https://github.com/marine-raimbault"
+  }
+}
