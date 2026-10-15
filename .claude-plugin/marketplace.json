@@ -4,7 +4,7 @@
     "name": "marine-raimbault"
   },
   "metadata": {
-    "description": "Claude Code skills by Marine Raimbault",
+    "description": "Claude Code skills I use every day as a junior developer, shared while I learn",
     "pluginRoot": "./plugins"
   },
   "plugins": [

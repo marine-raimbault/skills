@@ -1,6 +1,6 @@
 # skills
 
-Claude Code skills by Marine Raimbault.
+Claude Code skills I use every day as a junior developer, shared while I learn.
 
 ## learn
 
