@@ -47,7 +47,8 @@ npx skills add marine-raimbault/skills
 
 - [Claude Code](https://docs.claude.com/en/docs/claude-code).
 - Optional, for the cards: the [Anki](https://apps.ankiweb.net/) desktop app with the [AnkiConnect](https://ankiweb.net/shared/info/2055492159) add-on. Without it, the cards are shown as text. `/learn help` explains the setup.
-- Optional, for pull requests: the [GitHub CLI](https://cli.github.com/) (`gh`). Any tracker works for issues (e.g. GitHub, GitLab, Linear).
+- Optional, for pull requests: the [GitHub CLI](https://cli.github.com/) (`gh`).
+- Optional, for issues: access to your issue tracker, so the skill can read the ticket itself. For example an MCP server for your tracker (GitHub, GitLab or Linear all have one), or the tracker's CLI. I use it with Linear through its MCP server: `/learn ABC-123` reads the issue, its comments and linked PRs before the first question.
 
 ### Configuration
 
