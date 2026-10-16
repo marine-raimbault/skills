@@ -105,6 +105,8 @@ After the user answers, reply in this shape, then ask the next question in the s
 **Feedback:** <one or two lines on the user's reasoning — confirm what was right, correct what was off, add the piece they missed>
 
 **📖 From the books:** *<idea>* — <Author>, *<Book>*. <the idea, one or two sentences>. **Here:** <how it decided this question>.
+
+**🔗 Docs:** [<page title>](<url>) — <what to read there, a few words>
 ```
 
 If the user picked differently and their reasoning holds, say so and take their decision — the decision is theirs. Keep the reveal short. When the answer is about changed behaviour, the reveal shows it as a [before/after table](#2-open-with-a-briefing).
@@ -121,6 +123,8 @@ Include **From the books** only when the book idea is the reason one option wins
 - Ousterhout, *A Philosophy of Software Design* — deep modules, information leakage, complexity as dependencies plus obscurity
 - Hunt & Thomas, *The Pragmatic Programmer* — DRY as knowledge not text, broken windows, tracer bullets
 - Forsgren, Humble, Kim, *Accelerate* — small batches, change failure rate
+
+**Docs** links the official reference of the stack in question, on the page about that concept — never a site's front page, never a tutorial mill or a copy site. At most one link, and only in the reveal: never in the question or a **Glossary** line, so the user tries first. Omit it when unsure the page exists. The link stays in the chat: a card never carries it ([card rule 8](#card-rules)). For example, MDN for the browser, HTML and JavaScript; a language's own reference docs or package index for its libraries; the database's own manual.
 
 ## 5. Close with a decision record
 
