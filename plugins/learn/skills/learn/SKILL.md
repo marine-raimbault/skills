@@ -35,7 +35,7 @@ In review, like Anki:
 
 The same words work at any point of a session: "skip" moves on without revealing, "stop" jumps to section 5 or 6, "help" prints the card again, "ready?" gives the [approval verdict](#approval-verdict).
 
-Every code reference you write in chat — briefing, questions, reveals, explanations, ready check — is an absolute path with its line, `/home/you/project/src/app.ts:42`, built from the repo root (`git rev-parse --show-toplevel`); never a bare file name or a path relative to the working directory. The learner opens it with Cmd+click, and the session's working directory can change.
+Every code reference you write in chat — briefing, questions, reveals, explanations, ready check — is the short file name with its line, `topic.ts:8`: enough to find it with Cmd+P. Never write the full path, absolute or relative; it is not clickable in every terminal, and the session's working directory can change. When two files in the topic share a name, add the parent folder: `routes/topic.ts:8`.
 
 ## 1. Gather facts first
 
@@ -55,7 +55,7 @@ Before the first question, write a **Briefing** the way you would explain it to 
 
 Name the one or two things they will meet in the code, such as a function or a command; keep the three paragraphs free of file paths and other jargon. Add an everyday analogy only when the topic stays abstract.
 
-For a PR or code change — not a plan, not a plain topic — add a **Core file** block after the three paragraphs: the absolute path of the one file where the mechanism from **Now** lives, then its 3–5 central lines, each quoted as an absolute `path:line` and one plain sentence on what it does. Pick the file whose lines carry that mechanism, not the biggest file in the diff. One file only, never a file list: the learner needs one place to stand on before the first question. This block is the only place in the briefing where a path appears.
+For a PR or code change — not a plan, not a plain topic — add a **Core file** block after the three paragraphs: the name of the one file where the mechanism from **Now** lives, then its 3–5 central lines, each quoted as `file:line` and one plain sentence on what it does. Pick the file whose lines carry that mechanism, not the biggest file in the diff. One file only, never a file list: the learner needs one place to stand on before the first question. This block is the only place in the briefing where a path appears.
 
 When the topic changes behaviour — a PR, a regex, a rule, a config — add a **Before/after table**: 3–5 real inputs taken from the code or its tests, never invented, so the learner can find them again. Columns `input | before | now`; the rows whose result changed in bold. Under the table, two lines: `Rule before:` and `Rule now:`, one plain sentence each. Lay it out for a phone, as the card tables in [section 6](#6-save-cards-to-anki) are. A plan with no "before", a plain topic or a pure refactor gets no table.
 
@@ -239,7 +239,7 @@ Before the user asks for a review of a change they answer for — whoever or wha
 
 1. **Gather facts** as in section 1: the diff, the PR body, the code the change touches.
 2. Open with the line `🎯 **Ready check**` on its own. Ask about three questions a reviewer would have to answer, numbered together: where the behaviour lives now and how it runs, what happens on failure or at the edges, and the known risk or trade-off. Ask, then stop; never answer them in the same turn.
-3. Compare the answers with the code: say what was right, correct what was off with an absolute `path:line`, and fill any gap in one line per question. When the user doesn't know, the whole answer is at most three lines, one per question.
+3. Compare the answers with the code: say what was right, correct what was off with a `file:line`, and fill any gap in one line per question. When the user doesn't know, the whole answer is at most three lines, one per question.
 4. End with **Ready to ask for review** or **Not yet** and what is missing. Gaps → offer a normal session on them (sections 3–6), which ends in cards.
 
 "skip" skips the check.
