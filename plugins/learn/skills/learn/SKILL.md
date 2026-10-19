@@ -35,6 +35,8 @@ In review, like Anki:
 
 The same words work at any point of a session: "skip" moves on without revealing, "stop" jumps to section 5 or 6, "help" prints the card again, "ready?" gives the [approval verdict](#approval-verdict).
 
+Every code reference you write in chat — briefing, questions, reveals, explanations, ready check — is the short file name with its line, `topic.ts:8`: enough to find it with Cmd+P. Never write the full path, absolute or relative; it is not clickable in every terminal, and the session's working directory can change. When two files in the topic share a name, add the parent folder: `routes/topic.ts:8`.
+
 ## 1. Gather facts first
 
 Finding facts is your job, never the user's. Read the issue, the code, the diff, related tickets before asking anything. Dispatch a sub-agent for broad searches. Never ask the user something you could look up.
@@ -53,7 +55,7 @@ Before the first question, write a **Briefing** the way you would explain it to 
 
 Name the one or two things they will meet in the code, such as a function or a command; keep the three paragraphs free of file paths and other jargon. Add an everyday analogy only when the topic stays abstract.
 
-For a PR or code change — not a plan, not a plain topic — add a **Core file** block after the three paragraphs: the path of the one file where the mechanism from **Now** lives, then its 3–5 central lines, each quoted with `path:line` and one plain sentence on what it does. Pick the file whose lines carry that mechanism, not the biggest file in the diff. One file only, never a file list: the learner needs one place to stand on before the first question. This block is the only place in the briefing where a path appears.
+For a PR or code change — not a plan, not a plain topic — add a **Core file** block after the three paragraphs: the name of the one file where the mechanism from **Now** lives, then its 3–5 central lines, each quoted as `file:line` and one plain sentence on what it does. Pick the file whose lines carry that mechanism, not the biggest file in the diff. One file only, never a file list: the learner needs one place to stand on before the first question. This block is the only place in the briefing where a path appears.
 
 When the topic changes behaviour — a PR, a regex, a rule, a config — add a **Before/after table**: 3–5 real inputs taken from the code or its tests, never invented, so the learner can find them again. Columns `input | before | now`; the rows whose result changed in bold. Under the table, two lines: `Rule before:` and `Rule now:`, one plain sentence each. Lay it out for a phone, as the card tables in [section 6](#6-save-cards-to-anki) are. A plan with no "before", a plain topic or a pure refactor gets no table.
 
