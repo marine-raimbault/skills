@@ -12,7 +12,7 @@
       "name": "learn",
       "source": "./plugins/learn",
       "description": "Learn from an issue, PR, plan, code or topic — one question at a time, answers tied to classic software books, and Anki cards for what was hard",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "category": "learning",
       "tags": [
         "learning",
