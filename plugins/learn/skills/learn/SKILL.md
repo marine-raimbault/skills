@@ -55,7 +55,9 @@ Before the first question, write a **Briefing** the way you would explain it to 
 
 Name the one or two things they will meet in the code, such as a function or a command; keep the three paragraphs free of file paths and other jargon. Add an everyday analogy only when the topic stays abstract.
 
-For a PR or code change — not a plan, not a plain topic — add a **Core file** block after the three paragraphs: the name of the one file where the mechanism from **Now** lives, then its 3–5 central lines, each quoted as `file:line` and one plain sentence on what it does. Pick the file whose lines carry that mechanism, not the biggest file in the diff. One file only, never a file list: the learner needs one place to stand on before the first question. This block is the only place in the briefing where a path appears.
+When the topic is code, **Before** and **Now** each show the real code inline: a short excerpt of a few lines, real names, simplified down to the lines that carry the mechanism. The learner sees it work from the chat alone, without opening a file. An excerpt carries code, never a path.
+
+For a PR or code change — not a plan, not a plain topic — add a **Core file** block after the three paragraphs: the name of the one file where the mechanism from **Now** lives, then its 3–5 central lines, each as `file:line`, the line itself as an inline snippet, and one plain sentence on what it does. A `file:line` with only prose sends the learner to the file; the snippet lets them follow without it. Pick the file whose lines carry that mechanism, not the biggest file in the diff. One file only, never a file list: the learner needs one place to stand on before the first question. This block is the only place in the briefing where a path appears.
 
 When the topic changes behaviour — a PR, a regex, a rule, a config — add a **Before/after table**: 3–5 real inputs taken from the code or its tests, never invented, so the learner can find them again. Columns `input | before | now`; the rows whose result changed in bold. Under the table, two lines: `Rule before:` and `Rule now:`, one plain sentence each. Lay it out for a phone, as the card tables in [section 6](#6-save-cards-to-anki) are. A plan with no "before", a plain topic or a pure refactor gets no table.
 
@@ -91,7 +93,9 @@ When a technical term first appears (a file, a macro, a tool), add a **Glossary*
 
 For a plain topic there is no decision to make: drop **Options**, make the ❓ line a question the user can reason out from the situation — predict a failure, spot a hidden assumption — and in the reveal write **➡️ The answer:** instead of **My pick**. Build the questions from the real code, not from textbook examples.
 
-For a PR or code change, the questions start from the core file in the briefing. Other files — specs, removed code, hosts, callers — come in only once the user has explained the core correctly, and then one file per question.
+A question about how code works is a **step ladder** by default, never the full question at once. Each step is one message in the shape above with one tiny snippet of the real code under **The situation** (at most ~8 lines, simplified, real names), one new idea, and one micro-question the user can answer from that message alone. The next step builds on their answer, up to the real question. Correct a small slip in one line, then take the next step. A ladder counts as one question: the reveal comes after its last step. A question never sends the user to the code ("look at `topic.ts:8`"); `file:line` references go in the reveal.
+
+For a PR or code change, the questions start from the core file in the briefing: the first step of the ladder shows a snippet of it. Other files — specs, removed code, hosts, callers — come in only once the user has explained the core correctly, and then one file per question.
 
 Whenever the user says they don't follow, stop the round and explain until they do, starting from a [before/after table](#2-open-with-a-briefing) when the confusion is about what changed — chat as long as they need, then resume with the next question.
 
