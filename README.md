@@ -22,6 +22,7 @@ More modes:
 /learn <topic>                      e.g. /learn vue routing
 /learn handoff <text>               catch up on a teammate's handoff, ~20 min
 /learn ready <PR>                   can I defend this change before I ask for review?
+/learn cards <source>               a book chapter or article → checked cards, no quiz
 /learn review                       due Anki cards, then new learn cards
 /learn help                         the command card, and how to set up Anki
 ```

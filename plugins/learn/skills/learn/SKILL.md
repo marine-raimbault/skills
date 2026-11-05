@@ -1,6 +1,6 @@
 ---
 name: learn
-description: Learn from a plan, a design, finished work or a plain topic — one plain-language question at a time, the user answers before seeing yours, each answer is tied to an idea from the classic software reliability books, and what was hard becomes Anki cards. `ready <PR>` checks the user can defend their own change before asking for review. Use when the user runs /learn on an issue, plan, PR, piece of code or topic, /learn ready on a PR they will ask a review for, or /learn review to go through due Anki cards.
+description: Learn from a plan, a design, finished work or a plain topic — one plain-language question at a time, the user answers before seeing yours, each answer is tied to an idea from the classic software reliability books, and what was hard becomes Anki cards. `ready <PR>` checks the user can defend their own change before asking for review. `cards <source>` turns a book chapter or article into checked Anki cards, with no quiz. Use when the user runs /learn on an issue, plan, PR, piece of code or topic, /learn ready on a PR they will ask a review for, /learn cards on a book chapter or article, or /learn review to go through due Anki cards.
 disable-model-invocation: true
 ---
 
@@ -12,6 +12,8 @@ Work through the topic with the user until they understand it — a plan still t
 
 `/learn ready <PR>` follows [Ready check](#9-ready-check) instead of sections 2–6.
 
+`/learn cards <source>` follows [Cards from a source](#10-cards-from-a-source) instead of sections 2–6: no briefing, no quiz.
+
 `/learn` with no argument, or `help`, prints this card and the [Anki setup](#anki-setup) and stops — no fact gathering, no question:
 
 ```
@@ -19,6 +21,7 @@ Work through the topic with the user until they understand it — a plan still t
 /learn <topic>                      e.g. /learn vue routing
 /learn handoff <text>               catch up on a teammate's handoff, ~20 min
 /learn ready <PR>                   can I defend this change before I ask for review?
+/learn cards <source>               a book chapter or article → checked cards, no quiz
 /learn review                       due Anki cards, then new learn cards
 /learn help                         this card, and how to set up Anki
 
@@ -164,7 +167,7 @@ Before the card:
 
 Front:
 
-3. **One question, one answer** — a sentence, or a list of at most three.
+3. **One question, one answer** — a sentence, or a list of at most three. A longer list is split as rule 15 says.
 4. **Precise.** Exactly one right answer, and the reader knows what kind of answer is expected.
 5. **Effortful.** Ask why, how, or what breaks if. Never yes/no or mere recognition.
 
@@ -180,8 +183,9 @@ Back:
 The set:
 
 12. **Look-alike cards get a contrast card**, so they don't interfere.
-13. **Few cards.** One to three per session.
+13. **Few cards.** One to three per session. In [cards mode](#10-cards-from-a-source) the count follows the source's key ideas and named lists instead.
 14. **Rewrite a bad card; don't suspend it.**
+15. **Every named list is quizzed.** A list or framework the source or topic names — "five types of X", numbered steps — always gets cards, and together they cover every item with its meaning. A list longer than three is split: each card names the items already known and asks for the missing ones, at most three. Five types, for example: one card gives two and asks for the other three, another gives those three and asks for the first two.
 
 Cards go through AnkiConnect on `localhost:8765`, and each card's deck follows from what it holds:
 
@@ -247,6 +251,17 @@ Before the user asks for a review of a change they answer for — whoever or wha
 4. End with **Ready to ask for review** or **Not yet** and what is missing. Gaps → offer a normal session on them (sections 3–6), which ends in cards.
 
 "skip" skips the check.
+
+## 10. Cards from a source
+
+Turn a book chapter, a range of chapters or an article into checked cards — no briefing, no questions, no quiz.
+
+1. **Read the source.** Extract its full text, not a summary of it. When `<source>` names a chapter you cannot find, ask once for the file or the text.
+2. **List what it teaches**, for yourself first: its key ideas, one line each, and every list or framework it names ("five types of X", numbered steps) with all its items as the source states them.
+3. **Draft the cards** under the [card rules](#card-rules): one card per key idea worth remembering (rule 2), and for every named list the cards of rule 15. Keep the source's own terms; a back says nothing the source does not.
+4. **Check** with the fresh sub-agent of [section 6](#6-save-cards-to-anki), handing it the source text and the lists from step 2. Besides section 6's check, it confirms every item of every named list is asked for, with its meaning, across the cards. Fix what it finds.
+5. **Add** the cards, tagged `learn` as in section 6 so `review` picks them up. A book chapter is a general concept: `<LEARN_CONCEPTS_DECK>::<area>::<book-slug>::<NN chapter title>`, e.g. `…::continuous-discovery::09 Identifying Hidden Assumptions`, with `<area>` picked from `deckNames`; a range of chapters gets one subdeck per chapter, an article `<LEARN_CONCEPTS_DECK>::<area>::<article-slug>`. With `LEARN_CONCEPTS_DECK` unset: `<LEARN_LOG_DECK>::<book-slug>`, or the article's slug.
+6. **Report** the deck and each added front, then each named list with the cards that cover it.
 
 ## Anki setup
 
